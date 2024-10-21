@@ -6,33 +6,33 @@
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:19:27 by yel-mens          #+#    #+#             */
-/*   Updated: 2024/10/21 18:11:19 by yel-mens         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:17:26 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_switch(char item, va_list args)
+static void	ft_switch(char item, va_list args, int *count)
 {
 	if (item == 'c')
-		ft_char_c(args);
+		ft_char_c(args, count);
 	else if (item == 's')
-		ft_char_s(args);
+		ft_char_s(args, count);
 	else if (item == 'p')
 	{
-		ft_putstr_fd("0x", 1);
-		ft_char_x(args);
+		ft_putstr_fd("0x", 1, count);
+		ft_char_x(args, count);
 	}
 	else if (item == 'd' || item == 'i')
-		ft_char_d(args);
+		ft_char_d(args, count);
 	else if (item == 'u')
-		ft_char_u(args);
+		ft_char_u(args, count);
 	else if (item == 'x')
-		ft_char_x(args);
+		ft_char_x(args, count);
 	else if (item == 'X')
-		ft_char_xupper(args);
+		ft_char_xupper(args, count);
 	else if (item == '%')
-		ft_char_dorian();
+		ft_char_dorian(count);
 }
 
 static int	ft_isformat(char item)
@@ -55,13 +55,12 @@ static int	ft_parse(const char *str, va_list args)
 		if (str[i] == '%' && ft_isformat(str[i + 1]))
 		{
 			i++;
-			ft_switch(str[i], args);
-			count++;
+			ft_switch(str[i], args, &count);
 			i++;
 		}
 		else
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putchar_fd(str[i], 1, count);
 			i++;
 		}
 	}

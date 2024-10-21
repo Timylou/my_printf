@@ -6,13 +6,13 @@
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:47:17 by yel-mens          #+#    #+#             */
-/*   Updated: 2024/10/21 17:24:32 by yel-mens         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:59:16 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_char_dorian(void)
+void	ft_char_dorian(int *count)
 {
-	ft_putchar_fd('%', 1);
+	ft_putchar_fd('%', 1, count);
 }

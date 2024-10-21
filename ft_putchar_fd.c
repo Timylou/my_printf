@@ -6,13 +6,15 @@
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:38:04 by yel-mens          #+#    #+#             */
-/*   Updated: 2024/10/21 17:01:16 by yel-mens         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:14:07 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd, int *count)
 {
 	write(fd, &c, 1);
+	if (32 <= c && c <= 126)
+		(*count)++;
 }

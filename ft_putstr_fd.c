@@ -6,16 +6,16 @@
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:39:18 by yel-mens          #+#    #+#             */
-/*   Updated: 2024/10/21 17:12:59 by yel-mens         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:00:19 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd, int *count)
 {
 	if (fd < 0 || !s)
 		return ;
 	while (*s)
-		ft_putchar_fd(*s++, fd);
+		ft_putchar_fd(*s++, fd, count);
 }
