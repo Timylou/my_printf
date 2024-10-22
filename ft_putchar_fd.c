@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yel-mens <yel-mens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:38:04 by yel-mens          #+#    #+#             */
-/*   Updated: 2024/10/21 19:14:07 by yel-mens         ###   ########.fr       */
+/*   Updated: 2024/10/22 18:07:22 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 void	ft_putchar_fd(char c, int fd, int *count)
 {
 	write(fd, &c, 1);
-	if (32 <= c && c <= 126)
-		(*count)++;
+	(*count)++;
 }

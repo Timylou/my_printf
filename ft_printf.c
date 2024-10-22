@@ -6,7 +6,7 @@
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:19:27 by yel-mens          #+#    #+#             */
-/*   Updated: 2024/10/21 19:17:26 by yel-mens         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:15:27 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ static void	ft_switch(char item, va_list args, int *count)
 	else if (item == 's')
 		ft_char_s(args, count);
 	else if (item == 'p')
-	{
-		ft_putstr_fd("0x", 1, count);
-		ft_char_x(args, count);
-	}
+		ft_char_p(args, count);
 	else if (item == 'd' || item == 'i')
 		ft_char_d(args, count);
 	else if (item == 'u')
@@ -37,7 +34,7 @@ static void	ft_switch(char item, va_list args, int *count)
 
 static int	ft_isformat(char item)
 {
-	if (item == 'c' || item == 's' || item == 'p' || item == 'd'
+	if (item == 'c' || item == 's' || item == 'p' || item == 'd' || item == 'i'
 		|| item == 'u' || item == 'x' || item == 'X' || item == '%')
 		return (1);
 	return (0);
@@ -60,7 +57,7 @@ static int	ft_parse(const char *str, va_list args)
 		}
 		else
 		{
-			ft_putchar_fd(str[i], 1, count);
+			ft_putchar_fd(str[i], 1, &count);
 			i++;
 		}
 	}
